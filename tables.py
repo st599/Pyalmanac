@@ -7,12 +7,12 @@
 #     it under the terms of the GNU General Public License as published by
 #     the Free Software Foundation; either version 2 of the License, or
 #     (at your option) any later version.
-# 
+#
 #     This program is distributed in the hope that it will be useful,
 #     but WITHOUT ANY WARRANTY; without even the implied warranty of
 #     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #     GNU General Public License for more details.
-# 
+#
 #     You should have received a copy of the GNU General Public License along
 #     with this program; if not, write to the Free Software Foundation, Inc.,
 #     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -26,15 +26,15 @@ def planetstab(date):
     """generates a latex table for the navigational plantets"""
     tab = r'''\noindent
     \begin{tabular*}{0.75\textwidth}[t]{@{\extracolsep{\fill}}|c|r|rr|rr|rr|rr|}
-    \multicolumn{1}{c}{\normalsize{}} & \multicolumn{1}{c}{\normalsize{Aries}} &  \multicolumn{2}{c}{\normalsize{Venus}}& \multicolumn{2}{c}{\normalsize{Mars}} & \multicolumn{2}{c}{\normalsize{Jupiter}} & \multicolumn{2}{c}{\normalsize{Saturn}}\\ 
+    \multicolumn{1}{c}{\normalsize{}} & \multicolumn{1}{c}{\normalsize{Aries}} &  \multicolumn{2}{c}{\normalsize{Venus}}& \multicolumn{2}{c}{\normalsize{Mars}} & \multicolumn{2}{c}{\normalsize{Jupiter}} & \multicolumn{2}{c}{\normalsize{Saturn}}\\
     '''
     d = 0
     while d < 3:
         da = date+d
         tab = tab + r'''\hline
         \hline
-        \textbf{%s} & \multicolumn{1}{c|}{\textbf{GHA}} & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}} & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}& \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}& \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}} \\ 
-        \hline 
+        \textbf{%s} & \multicolumn{1}{c|}{\textbf{GHA}} & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}} & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}& \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}& \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}} \\
+        \hline
         ''' %(ephem.date(da).datetime().strftime("%a"))
         h = 0
         while h < 24:
@@ -44,8 +44,8 @@ def planetstab(date):
             h += 1
             da = da+ephem.hour
         vd = vdmean(date+d)
-        tab = tab + r"""\hline 
-        \multicolumn{2}{|c|}{Mer.pass.:%s}&  \multicolumn{2}{c|}{v%s d%s m%s}& \multicolumn{2}{c|}{v%s d%s m%s} & \multicolumn{2}{c|}{v%s d%s m%s} & \multicolumn{2}{c|}{v%s d%s m%s}\\ 
+        tab = tab + r"""\hline
+        \multicolumn{2}{|c|}{Mer.pass.:%s}&  \multicolumn{2}{c|}{v%s d%s m%s}& \multicolumn{2}{c|}{v%s d%s m%s} & \multicolumn{2}{c|}{v%s d%s m%s} & \multicolumn{2}{c|}{v%s d%s m%s}\\
         \hline
         \multicolumn{10}{c}{}\\
         """ %(ariestransit(date+d),vd[3],vd[4],vd[5],vd[6],vd[7],vd[8],vd[9],vd[10],vd[11],vd[12],vd[13],vd[14])
@@ -58,10 +58,10 @@ def starstab(date):
     """returns a table with ephemerieds for the navigational stars
     """
     out = r"""\begin{tabular*}{0.25\textwidth}[t]{@{\extracolsep{\fill}}|rrr|}
-    \multicolumn{3}{c}{\normalsize{Stars}}  \\ 
+    \multicolumn{3}{c}{\normalsize{Stars}}  \\
     \hline
     \hline
-    & \multicolumn{1}{c}{\textbf{SHA}} & \multicolumn{1}{c|}{\textbf{Dec}} \\ 
+    & \multicolumn{1}{c}{\textbf{SHA}} & \multicolumn{1}{c|}{\textbf{Dec}} \\
     \hline
     """
     stars = stellar(date+1)
@@ -86,7 +86,7 @@ def starstab(date):
     hp = hp + '\multicolumn{2}{|r}{Mars:} & \multicolumn{1}{c|}{%s} \\\ \n' %(p[8])
     hp = hp + '\\hline \n'
     out = out + hp
-    
+
     out = out + r'\end{tabular*}'
     return out
 
@@ -95,13 +95,13 @@ def sunmoontab(date):
     """
     tab = r'''\noindent
     \begin{tabular*}{0.55\textwidth}[t]{@{\extracolsep{\fill}}|c|rr|rrrrr|}
-    \multicolumn{1}{c}{\normalsize{h}}& \multicolumn{2}{c}{\normalsize{Sun}} & \multicolumn{5}{c}{\normalsize{Moon}} \\ 
+    \multicolumn{1}{c}{\normalsize{h}}& \multicolumn{2}{c}{\normalsize{Sun}} & \multicolumn{5}{c}{\normalsize{Moon}} \\
     '''
     d = 0
     while d < 3:
-        tab = tab + r'''\hline 
-        \hline 
-        \multicolumn{1}{|c|}{\textbf{%s}} &\multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}  & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c}{\textbf{\(\nu\)}} & \multicolumn{1}{c}{\textbf{Dec}} & \multicolumn{1}{c}{\textbf{d}} & \multicolumn{1}{c|}{\textbf{HP}} \\ 
+        tab = tab + r'''\hline
+        \hline
+        \multicolumn{1}{|c|}{\textbf{%s}} &\multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c|}{\textbf{Dec}}  & \multicolumn{1}{c}{\textbf{GHA}} & \multicolumn{1}{c}{\textbf{\(\nu\)}} & \multicolumn{1}{c}{\textbf{Dec}} & \multicolumn{1}{c}{\textbf{d}} & \multicolumn{1}{c|}{\textbf{HP}} \\
         \hline
         ''' %(ephem.date(date+d).datetime().strftime("%a"))
         da = date+d
@@ -121,7 +121,7 @@ def sunmoontab(date):
         d = d + 1
     tab = tab+r"""\end{tabular*}"""
     return tab
-    
+
 def twilighttab(date):
     """returns the twilight and moonristables"""
     lat = [72,70,68,66,64,62,60,58,56,54,52,50,45,40,35,30,20,10,0,-10,-20,-30,-35,-40,-45,-50,-52,-54,-56,-58,-60]
@@ -129,8 +129,8 @@ def twilighttab(date):
     \multicolumn{7}{c}{\normalsize{}} \\
     \hline
     \hline
-    \multicolumn{1}{|c|}{} & \multicolumn{2}{c}{\textbf{Twilight}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c|}{\textbf{Twilight}} \\ 
-    \multicolumn{1}{|c|}{\textbf{Lat.}} &\multicolumn{1}{c}{Naut.} & \multicolumn{1}{c}{Civil} & \multicolumn{1}{c|}{Sunrise} & \multicolumn{1}{c}{Sunset} & \multicolumn{1}{c}{Civil} &\multicolumn{1}{c|}{Naut.}\\ 
+    \multicolumn{1}{|c|}{} & \multicolumn{2}{c}{\textbf{Twilight}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c|}{\textbf{Twilight}} \\
+    \multicolumn{1}{|c|}{\textbf{Lat.}} &\multicolumn{1}{c}{Naut.} & \multicolumn{1}{c}{Civil} & \multicolumn{1}{c|}{Sunrise} & \multicolumn{1}{c}{Sunset} & \multicolumn{1}{c}{Civil} &\multicolumn{1}{c|}{Naut.}\\
     \hline
     '''
     for i in lat:
@@ -142,8 +142,8 @@ def twilighttab(date):
     \multicolumn{7}{c}{}\\
     \hline
     \hline
-    \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{Moonrise}}  & \multicolumn{3}{c|}{\textbf{Moonset}} \\ 
-    \multicolumn{1}{|c|}{\textbf{Lat.}} &\multicolumn{1}{c}{%s} & \multicolumn{1}{c}{%s} & \multicolumn{1}{c|}{%s} & \multicolumn{1}{c}{%s} & \multicolumn{1}{c}{%s} &\multicolumn{1}{c|}{%s} \\ 
+    \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{Moonrise}}  & \multicolumn{3}{c|}{\textbf{Moonset}} \\
+    \multicolumn{1}{|c|}{\textbf{Lat.}} &\multicolumn{1}{c}{%s} & \multicolumn{1}{c}{%s} & \multicolumn{1}{c|}{%s} & \multicolumn{1}{c}{%s} & \multicolumn{1}{c}{%s} &\multicolumn{1}{c|}{%s} \\
     \hline
     """ %(weekday[0],weekday[1],weekday[2],weekday[0],weekday[1],weekday[2],)
     moon = [0,0,0,0,0,0]
@@ -154,9 +154,9 @@ def twilighttab(date):
     \multicolumn{7}{c}{}\\
     \hline
     \hline
-    \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{Sun}}  & \multicolumn{3}{c|}{\textbf{Moon}} \\ 
-    \multicolumn{1}{|c|}{\textbf{Day}} &\multicolumn{2}{c}{Eqn.of Time} & \multicolumn{1}{c|}{Mer.} & \multicolumn{2}{c}{Mer.Pass.} & \multicolumn{1}{c|}{Age} \\ 
-    \multicolumn{1}{|c|}{} &\multicolumn{1}{c}{00\textsuperscript{h}} & \multicolumn{1}{c}{12\textsuperscript{h}} & \multicolumn{1}{c|}{Pass} & \multicolumn{1}{c}{Upper} & \multicolumn{1}{c}{Lower} &\multicolumn{1}{c|}{} \\ 
+    \multicolumn{1}{|c|}{} & \multicolumn{3}{c|}{\textbf{Sun}}  & \multicolumn{3}{c|}{\textbf{Moon}} \\
+    \multicolumn{1}{|c|}{\textbf{Day}} &\multicolumn{2}{c}{Eqn.of Time} & \multicolumn{1}{c|}{Mer.} & \multicolumn{2}{c}{Mer.Pass.} & \multicolumn{1}{c|}{Age} \\
+    \multicolumn{1}{|c|}{} &\multicolumn{1}{c}{00\textsuperscript{h}} & \multicolumn{1}{c}{12\textsuperscript{h}} & \multicolumn{1}{c|}{Pass} & \multicolumn{1}{c}{Upper} & \multicolumn{1}{c}{Lower} &\multicolumn{1}{c|}{} \\
     \hline
     """
     for k in range(3):
@@ -174,33 +174,33 @@ def dobblepage(date):
     page = r"""\sffamily
     \noindent
     \textbf{%s, %s ,%s   (%s.,  %s.,  %s.)}
-    
+
     \begin{scriptsize}
     """ %(ephem.date(date).datetime().strftime("%B %d"),ephem.date(date+1).datetime().strftime("%d"),ephem.date(date+2).datetime().strftime("%d"),ephem.date(date).datetime().strftime("%a"),ephem.date(date+1).datetime().strftime("%a"),ephem.date(date+2).datetime().strftime("%a"))
     page = page + planetstab(date)
     page = page + starstab(date)
     page = page + r""" \end{scriptsize}
     \newpage
-    
-    
-    
+
+
+
     \begin{flushright}
     \textbf{%s to %s}
     \end{flushright}
-    
+
     \begin{scriptsize}
     """ %(ephem.date(date).datetime().strftime("%Y %B %d"),ephem.date(date+2).datetime().strftime("%b. %d"))
     page = page + sunmoontab(date)
     page = page + twilighttab(date)
     page = page + r"""\end{scriptsize}
     \newpage
-    
-    
-    
+
+
+
     """
     return page
-    
-    
+
+
 def pages(date,p):
     """make i dobblepages beginning with date"""
     d = ephem.date(date)
@@ -209,7 +209,7 @@ def pages(date,p):
         out = out + dobblepage(d)
         d = d +3
     return out
-        
+
 def almanac(year):
     """make almanak from date til date"""
     alm = r"""\documentclass[10pt, twoside, a4paper]{report}
@@ -224,47 +224,46 @@ def almanac(year):
     \begin{document}
 
     \begin{titlepage}
-     
+
     \begin{center}
-     
+
     \textsc{\Large Generated by PyAlmanac}\\[1.5cm]
 
-    \includegraphics[width=0.4\textwidth]{./Navigational-stars-north}\\[1cm]
+    \includegraphics[width=0.4\textwidth]{./images/Navigational-stars-north}\\[1cm]
 
-     
+
     \textsc{\huge The Nautical Almanac}\\[0.7cm]
-     
+
     \HRule \\[0.6cm]
     { \Huge \bfseries %s}\\[0.4cm]
-     
+
     \HRule \\[1.5cm]
-     
+
     \begin{center} \large
     \emph{Author:}\\
     Enno \textsc{Rodegerdts}
     \end{center}
 
 
-     
+
     \vfill
-     
+
     {\large \today}
     \HRule \\[0.6cm]
     \end{center}
-    
+
     \begin{description}\tiny
-    
-	\item[Disclaimer:] These are computer generated tables. Use on your own risk. 
-    The accuracy has been checked as good as possible but can not be guaranteed. 
-    This means, if you get lost on the oceans because of errors in this publication I can not be held liable. 
+
+	\item[Disclaimer:] These are computer generated tables. Use on your own risk.
+    The accuracy has been checked as good as possible but can not be guaranteed.
+    This means, if you get lost on the oceans because of errors in this publication I can not be held liable.
     For security relevant applications you should buy an official version of the nautical almanac. You need one anyway since this publication only contains the daily pages of the Nautical Almanac
-	
+
 	\end{description}
-     
-     
+
+
     \end{titlepage}""" %(year)
     y = ephem.date(str(year))
     alm = alm + pages(y,122)
     alm = alm + '\end{document}'
     return alm
-

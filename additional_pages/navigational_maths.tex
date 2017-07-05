@@ -1,0 +1,26 @@
+DIP corrects for hight of eye over the surface. This value has to be subtracted from the sextant altitude ($H_s$). The  correction in degrees for hight of eye in meters is given by the following formula:
+\[d=0.0293\sqrt{m}\]
+This is the first correction (apart from index error) that has to be applied to the measured altitude.
+
+The next correction is for refraction in the earths atmosphere. As usual this table is correct for 10°C and a pressure of 1010hPa. This correction has to be applied to apparent altitude ($H_a$). The exact values can be calculated by the following formula.
+\[R_0=\cot \left( H_a + \frac{7.31}{H_a+4.4}\right)\]
+For other than standard conditions calculate a correction factor for $R_0$ by: \[f=\frac{0.28P}{T+273}\] where $P$ is the pressure in hectopascal and $T$ is the temperature in °C.
+
+ Semidiameter has to be added for lower limb sights and subtracted for upper limb sights. The value for semidiameter is tabulated in the daily pages.
+
+To correct your sextant altitude $H_s$ do the following:
+Calculate $H_a$ by
+ \[H_a= H_s+I-dip\]
+Where $I$ is the sextants index error. Than calculate the observed altitude $H_o$ by
+\[H_o= H_a-R+P\pm SD\]
+where $R$ is refraction, $P$ is parallax and $SD$ is the semidiameter.
+
+Sight reduction tables can be downloaded for the US governments internet pages. Search for HO-229 or HO-249.  These values can also be calculated with to, relatively simple, formulas
+\[ \sin H_c= \sin L \sin d + \cos L \cos d \cos LHA\]
+and
+\[\cos A = \frac{\sin d - \sin L \sin H_c}{\cos L \cos H_c}\]
+where $A$ is the azimuth angle, $L$ is the latitude, $d$ is the declination and $LHA$ is the local hour angle. The azimuth ($Z_n$) is given by the following rule:
+\begin{itemize}
+    \item if the $LHA$ is greater than 180°, $Z_n=A$
+    \item if the $LHA$ is less than 180°, $Z_n = 360° - A$
+\end{itemize}
