@@ -221,6 +221,7 @@ def almanac(year):
     \usepackage{amssymb}
     \usepackage{siunitx}
     \usepackage{longtable}
+    \usepackage{multicol}
     \usepackage[ top=25mm, bottom=25mm, left=18mm, right=8mm]{geometry}
 
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
