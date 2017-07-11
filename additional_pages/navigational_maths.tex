@@ -1,11 +1,16 @@
-DIP corrects for hight of eye over the surface. This value has to be subtracted from the sextant altitude ($H_s$). The  correction in degrees for hight of eye in meters is given by the following formula:
+\begin{multicols}{2}
+
+\section*{Dip Correction}
+Dip corrects for hight of eye above the surface. This value has to be subtracted from the sextant altitude ($H_s$). The correction in degrees for height of eye in meters is given by the following formula:
 \[d=0.0293\sqrt{m}\]
 This is the first correction (apart from index error) that has to be applied to the measured altitude.
 
+\section*{Refraction Correction}
 The next correction is for refraction in the earths atmosphere. As usual this table is correct for 10°C and a pressure of 1010hPa. This correction has to be applied to apparent altitude ($H_a$). The exact values can be calculated by the following formula.
 \[R_0=\cot \left( H_a + \frac{7.31}{H_a+4.4}\right)\]
 For other than standard conditions calculate a correction factor for $R_0$ by: \[f=\frac{0.28P}{T+273}\] where $P$ is the pressure in hectopascal and $T$ is the temperature in °C.
 
+\section*{Semidiameter}
  Semidiameter has to be added for lower limb sights and subtracted for upper limb sights. The value for semidiameter is tabulated in the daily pages.
 
 To correct your sextant altitude $H_s$ do the following:
@@ -24,3 +29,4 @@ where $A$ is the azimuth angle, $L$ is the latitude, $d$ is the declination and 
     \item if the $LHA$ is greater than 180°, $Z_n=A$
     \item if the $LHA$ is less than 180°, $Z_n = 360° - A$
 \end{itemize}
+\end{multicols}
