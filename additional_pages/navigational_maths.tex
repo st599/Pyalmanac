@@ -1,9 +1,33 @@
 \begin{multicols}{2}
 
+\section*{Index Error}
+
+Index error is a measurement of hw accurate the sextant's vernier scale is.  That is, when the scope and the mirror are set so that the horizon meets perfectly, how far from 0.0° does the sexant read.
+
+This value has to be added or subtracted from the sextant altitude ($H_s$), this is the first correction to be applied.
+
 \section*{Dip Correction}
-Dip corrects for hight of eye above the surface. This value has to be subtracted from the sextant altitude ($H_s$). The correction in degrees for height of eye in meters is given by the following formula:
-\[d=0.0293\sqrt{m}\]
-This is the first correction (apart from index error) that has to be applied to the measured altitude.
+
+Dip corrects for hight of eye above the surface. This value has to be subtracted from the sextant altitude ($H_s$).  This is the second correction that has to be applied to the measured altitude.\\
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\texttt{Height of Eye} & \texttt{Dip Correction}\\
+\hline
+\texttt{0.0} &	\texttt{0.0}\\
+\texttt{0.5}	& \texttt{0.0207182287}\\
+\texttt{1.0} &	\texttt{0.0293}\\
+\texttt{1.5}	& \texttt{0.0358850247}\\
+\texttt{2.0} &	\texttt{0.0414364574}\\
+\texttt{2.5}	& \texttt{0.0463273677}\\
+\texttt{3.0} &	\texttt{0.0507490887}\\
+\texttt{3.5} & \texttt{0.0548152807}\\
+\texttt{4.0}	& \texttt{0.0586}\\
+\hline
+\end{tabular}
+\end{center}
+
 
 \section*{Refraction Correction}
 The next correction is for refraction in the earths atmosphere. As usual this table is correct for 10°C and a pressure of 1010hPa. This correction has to be applied to apparent altitude ($H_a$). The exact values can be calculated by the following formula.

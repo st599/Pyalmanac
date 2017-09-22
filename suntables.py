@@ -103,6 +103,7 @@ def almanac(year):
     \setlength{\parindent}{0pt}
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \usepackage[pdftex]{graphicx}
+    \usepackage{multicol}
 
     \begin{document}
 
